@@ -1,0 +1,26 @@
+.massageBody{
+    box-shadow:  0px 0px 3px #ccc; 
+    padding: 15px;
+    height: 200%;
+}
+.massageBody__header{
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid whitesmoke;
+}
+.massageBody__header h5{
+    color: #7e7c7c;
+    font-weight: lighter;
+    font-size: 15px;
+    margin-right: 2rem;
+}
+.massageBody__from{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid whitesmoke;
+}
+.massageBody__body{
+    display: flex;
+   
+}

@@ -1,0 +1,55 @@
+.emailList{
+    display: flex;
+    flex-direction: column;
+}
+.emailBody{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid whitesmoke;
+    padding: 0px 10px;
+    height: 45px;
+}
+.emailBody:hover{
+    box-shadow: 2px 2px 4px whitesmoke;
+    cursor: pointer;
+}
+.emailBody .emailBody__left{
+    display: flex;
+    align-items: center;
+    min-width: 300px;
+    flex: 20%;
+} 
+.emailBody .emailBody__left svg{
+    font-size: 20px;
+    color: gray;
+    margin-right: 15px;
+}
+.emailBody .emailBody__left h4{
+    font-size: 15px;
+   
+}
+.emailBody .emailBody__middle{
+    display: flex;
+    align-items: center;
+    flex: 70%;
+}
+.emailBody .emailBody__middle p{
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+.emailBody .emailBody__middle__msg{
+    display: flex;
+    width: 80%;
+}
+.emailBody .emailBody__right{
+    display: flex;
+    align-items: center;
+    flex: 20%;
+    justify-content: flex-end;
+}
+.emailBody .emailBody__right p{
+    font-size: 12px;
+}
