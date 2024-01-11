@@ -15,3 +15,14 @@ code {
   display: grid;
   grid-template-columns: 250px auto 50px;
 }
+.intro{
+  display: grid;
+  grid-column:auto;
+  height: 5rem;
+  background-color: whitesmoke;
+}
+.intro h2{
+  padding-left: 2rem;
+  margin-left: 4rem;
+  color: rgb(74, 74, 87);
+}

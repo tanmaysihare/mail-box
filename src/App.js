@@ -16,6 +16,7 @@ function App() {
   const isLoggedIn = useSelector((state)=> state.auth.isLoggedIn);
   return (
     <div className="App">
+     {! isLoggedIn && <div className='intro'><h2>WELCOME TO MAIL-BOX</h2></div>}
      {isLoggedIn && <Header/>}
       <div className='app__body'>
      {isLoggedIn && <Sidebar/>}
