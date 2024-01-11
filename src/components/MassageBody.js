@@ -5,13 +5,15 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+
 function MassageBody() {
     const history = useHistory();
     const massageData = useSelector((state)=> state.compose.selectedMassage);
 
   return (
     <div className='massageBody'>
-        <IconButton onClick={()=>history.push('/')}><ArrowBackIcon/></IconButton>
+        <IconButton onClick={()=>history.push('/inbox')}><ArrowBackIcon/></IconButton>
+
         <div className='massageBody__header'>
              <h5>SUBJECT : </h5><h3>{massageData.subject}</h3>
         </div>

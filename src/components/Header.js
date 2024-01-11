@@ -5,7 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import './css/Header.css';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../store/Auth-Slice";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import { auth } from "../firebase";
@@ -13,6 +13,7 @@ import { auth } from "../firebase";
 const Header = ()=> {
     const dispatch = useDispatch();
     const history = useHistory();
+    const email = useSelector((state)=> state.auth.email);
 
     const logoutHandler = async ()=> {
         try {
@@ -37,6 +38,7 @@ const Header = ()=> {
                 <IconButton>
                     <ReorderIcon></ReorderIcon>
                 </IconButton>
+                <h4>{email}</h4>
             </div>
             <div className="header__middle">
                 <div className="search_mail">

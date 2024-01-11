@@ -39,6 +39,7 @@ function Compose() {
       massage: contentText,
       from: fromEmail ,
       timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
+      isRead: false,
     });
     setTo("");
     setSubject("");

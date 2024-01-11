@@ -4,6 +4,8 @@ import { createSlice } from "@reduxjs/toolkit";
     initialState: {
         isComposeOpen : false,
         selectedMassage:null,
+        docId:null,
+        isActive:false,
     },
     reducers:{
         openCompose(state){
@@ -14,6 +16,15 @@ import { createSlice } from "@reduxjs/toolkit";
         },
         openMessage:(state,action) => {
             state.selectedMassage = action.payload;
+        },
+        docId:(state,action)=>{
+            state.docId = action.payload;
+        },
+        isActiveTrue(state){
+            state.isActive = true;
+        },
+        isActiveFalse(state){
+            state.isActive = false;
         },
     },
   });

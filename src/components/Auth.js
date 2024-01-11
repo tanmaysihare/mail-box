@@ -9,7 +9,9 @@ import { auth} from "../firebase";
 const Auth = () => {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
-  const conformPasswordInputRef = useRef();
+  
+  
+
   const dispatch = useDispatch();
   const history = useHistory();
   const isSignIn = useSelector((state) => state.auth.isSignIn);
@@ -21,7 +23,14 @@ const Auth = () => {
     event.preventDefault();
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
-    const enteredConformedPassword = conformPasswordInputRef.current.value;
+
+      
+    
+      
+    
+      
+    
+   
    
     try {
       let userCredential;
@@ -34,18 +43,18 @@ const Auth = () => {
         );
       } else {
         // Sign up with email and password
-        if(enteredPassword === enteredConformedPassword){
+        
         userCredential = await auth.createUserWithEmailAndPassword(
           enteredEmail,
           enteredPassword
         );
-      }else{
-        alert("password not match");
-      }
+      
+        
+      
     }
 
       const user = userCredential.user.multiFactor.user;
-      
+     // console.log(user);
       dispatch(
         authActions.login({
           token: user.accessToken, // or user.idToken, depending on Firebase version
@@ -57,9 +66,10 @@ const Auth = () => {
       localStorage.setItem("token", user.accessToken);
       localStorage.setItem("userId", user.uid);
       localStorage.setItem("email",user.email);
-      history.replace('/');
+      history.replace('/inbox');
     } catch (error) {
       console.error("Authentication error:", error.message);
+      alert("Error",error);
       // Handle error, show alert, etc.
     }
   };
@@ -75,14 +85,15 @@ const Auth = () => {
           <label>Your Password</label>
           <input type="password" id="password" ref={passwordInputRef} />
         </div>
+        {isSignIn && 
         <div className={classes.control}>
           <label>Conform Your Password</label>
           <input
             type="password"
             id="conformPassword"
-            ref={conformPasswordInputRef}
+            
           />
-        </div>
+        </div>}
         <div className={classes.actions}>
           <button>{isSignIn ? "Create Account" : "login"}</button>
           <button

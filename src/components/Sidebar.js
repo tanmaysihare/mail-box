@@ -8,18 +8,20 @@ import SendIcon from "@mui/icons-material/Send";
 import { useDispatch } from "react-redux";
 import { composeActions } from "../store/compose-slice";
 import { useHistory } from "react-router-dom";
+
 function Sidebar() {
   const dispatch = useDispatch();
   const history = useHistory();
+
   const composeHandler = () => {
     dispatch(composeActions.openCompose());
   };
-  const inboxHandler =()=> {
-    history.push('/inbox');
-  }
-  const sendboxHandler=()=> {
-    history.push('/sentBox');
-  }
+
+  const navigateTo = (route) => {
+    history.push(route);
+  };
+
+
   return (
     <div className="sidebar">
       <Button
@@ -29,11 +31,13 @@ function Sidebar() {
       >
         Compose
       </Button>
-      <Button onClick={inboxHandler}>
-        <SidebarOptions Icon={InboxIcon} title="Inbox" number={"1"} isActive={false}/>
+
+      <Button onClick={() => navigateTo("/inbox")}>
+        <SidebarOptions Icon={InboxIcon} title="Inbox" number={"1"} isActive={true} />
       </Button>
-      <Button onClick={sendboxHandler}>
-        <SidebarOptions Icon={SendIcon} title="SendBox" number="1" />
+
+      <Button onClick={() => navigateTo("/sentBox")}>
+        <SidebarOptions Icon={SendIcon} title="SentBox" number="1" isActive={false}/>
       </Button>
     </div>
   );
