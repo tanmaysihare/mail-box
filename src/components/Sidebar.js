@@ -5,7 +5,7 @@ import AddIcon from "@mui/icons-material/Add";
 import SidebarOptions from "./SidebarOptions";
 import InboxIcon from "@mui/icons-material/Inbox";
 import SendIcon from "@mui/icons-material/Send";
-import { useDispatch } from "react-redux";
+import { useDispatch ,useSelector} from "react-redux";
 import { composeActions } from "../store/compose-slice";
 import { useHistory } from "react-router-dom";
 import { db } from "../firebase";
@@ -14,9 +14,10 @@ function Sidebar() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [unReadCount, setUnReadCount] = useState(0);
+  const email = useSelector((state)=> state.auth.email);
   useEffect(() => {
     // Subscribe to real-time updates for unread messages
-    const unsubscribe = db.collection("emails")
+    const unsubscribe = db.collection("emails").where("to", "==", email)
       .where("isRead", "==", false)
       .onSnapshot((snapshot) => {
         setUnReadCount(snapshot.docs.length);
@@ -24,7 +25,7 @@ function Sidebar() {
 
     // Clean up the subscription when the component unmounts
     return () => unsubscribe();
-  }, []);
+  }, [email]);
   const composeHandler = () => {
     dispatch(composeActions.openCompose());
   };
