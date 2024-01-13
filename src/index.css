@@ -16,8 +16,7 @@ code {
   grid-template-columns: 250px auto 50px;
 }
 .intro{
-  display: grid;
-  grid-column:auto;
+  display: flex;
   height: 5rem;
   background-color: whitesmoke;
 }
@@ -25,4 +24,10 @@ code {
   padding-left: 2rem;
   margin-left: 4rem;
   color: rgb(74, 74, 87);
+}
+.intro__btn{
+  width: 2rem;
+  height: 2rem;
+  margin-top: 1rem;
+  margin-left: 2rem;
 }

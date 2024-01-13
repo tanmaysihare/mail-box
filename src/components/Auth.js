@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 //import { SignupData } from "../../Store/Auth-action";
 import classes from "./css/login-signup.module.css";
 import { authActions } from "../store/Auth-Slice";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { auth} from "../firebase";
 
 const Auth = () => {
@@ -102,6 +102,7 @@ const Auth = () => {
             onClick={switchModeHandler}
           >
             {isSignIn ? "Login With Existing Account" : "Create New Account  |"}
+            {!isSignIn ? <Link to="/forgetPassword">|  Forget Password</Link> : ""}
           </button>
         </div>
       </form>
